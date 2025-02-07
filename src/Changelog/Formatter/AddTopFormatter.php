@@ -39,7 +39,6 @@ use Nucleos\Relazy\Version\ReleaseType;
  */
 final class AddTopFormatter implements Formatter
 {
-    /** @psalm-suppress InvalidReturnType */
     public function updateExistingLines(
         array $lines,
         string $version,
@@ -60,8 +59,6 @@ final class AddTopFormatter implements Formatter
         array_splice($lines, $pos, 0, [$version, str_repeat('-', \strlen($version)), '']);
 
         /**
-         * @psalm-suppress InvalidReturnStatement
-         *
          * @phpstan-ignore-next-line
          */
         return $lines;
