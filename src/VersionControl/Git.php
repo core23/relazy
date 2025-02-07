@@ -36,14 +36,14 @@ final class Git implements VersionControl
         $colorOption          = $color ? '--color=always' : '';
         $noMergeCommitsOption = $noMergeCommits ? '--no-merges' : '';
 
-        return $this->executeGitCommand(sprintf('log --oneline %s..HEAD %s %s', $tag, $colorOption, $noMergeCommitsOption));
+        return $this->executeGitCommand(\sprintf('log --oneline %s..HEAD %s %s', $tag, $colorOption, $noMergeCommitsOption));
     }
 
     public function getModifiedFilesSince(string $tag): array
     {
         $files = [];
 
-        $lines  = array_filter($this->executeGitCommand(sprintf('diff --name-status %s..HEAD', $tag)));
+        $lines  = array_filter($this->executeGitCommand(\sprintf('diff --name-status %s..HEAD', $tag)));
 
         foreach ($lines as $line) {
             [$state, $file] = explode("\t", (string) $line);
@@ -66,21 +66,21 @@ final class Git implements VersionControl
 
     public function createTag(string $name): void
     {
-        $this->executeGitCommand(sprintf('tag %s %s -m %s', $this->signTag ? '-s' : '', $name, $name));
+        $this->executeGitCommand(\sprintf('tag %s %s -m %s', $this->signTag ? '-s' : '', $name, $name));
     }
 
     public function publishTag(string $tagName, ?string $remote = null): void
     {
         $remote ??= self::DEFAULT_REMOTE;
 
-        $this->executeGitCommand(sprintf('push %s %s', $remote, $tagName));
+        $this->executeGitCommand(\sprintf('push %s %s', $remote, $tagName));
     }
 
     public function publishChanges(?string $remote = null): void
     {
         $remote ??= self::DEFAULT_REMOTE;
 
-        $this->executeGitCommand(sprintf('push %s ', $remote).$this->getCurrentBranch());
+        $this->executeGitCommand(\sprintf('push %s ', $remote).$this->getCurrentBranch());
     }
 
     public function saveWorkingCopy(string $commitMsg = '', array $filter = []): void
@@ -91,7 +91,7 @@ final class Git implements VersionControl
             $this->executeGitCommand('add '.implode(' ', $filter));
         }
 
-        $this->executeGitCommand(sprintf('commit %s -m "%s"', $this->signCommit ? '-S' : '', $commitMsg));
+        $this->executeGitCommand(\sprintf('commit %s -m "%s"', $this->signCommit ? '-S' : '', $commitMsg));
     }
 
     public function getCurrentBranch(): string
@@ -126,7 +126,7 @@ final class Git implements VersionControl
             }
         }
 
-        $process = Process::fromShellCommandline(sprintf('git %s', $command));
+        $process = Process::fromShellCommandline(\sprintf('git %s', $command));
         $process->run();
 
         $result = explode(PHP_EOL, $process->getOutput());

@@ -29,7 +29,7 @@ final class OutdatedAction extends AbstractAction
         $process = $this->executeCommand($console, $this->composer.' outdated');
 
         if (0 !== $process->getExitCode()) {
-            throw new CommandException(sprintf('%s is invalid', self::COMPOSER_JSON_FILE));
+            throw new CommandException(\sprintf('%s is invalid', self::COMPOSER_JSON_FILE));
         }
     }
 }

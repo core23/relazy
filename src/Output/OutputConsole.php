@@ -102,12 +102,12 @@ final class OutputConsole implements Console
 
     public function writeWarning(string $text): void
     {
-        $this->internalWrite(sprintf('<warning>%s</warning>', $text), true);
+        $this->internalWrite(\sprintf('<warning>%s</warning>', $text), true);
     }
 
     public function writeError(string $text): void
     {
-        $this->internalWrite(sprintf('<error>%s</error>', $text), true);
+        $this->internalWrite(\sprintf('<error>%s</error>', $text), true);
     }
 
     public function askQuestion(InteractiveQuestion $question, ?int $position, InputInterface $input): mixed

@@ -25,7 +25,7 @@ final class CheckWorkingCopyAction extends BaseAction
         $modCount = \count($context->getVersionControl()->getLocalModifications());
 
         if ($modCount > 0) {
-            throw new CommandException(sprintf('Your working directory contains %s local modification(s).', $modCount), self::EXCEPTION_CODE);
+            throw new CommandException(\sprintf('Your working directory contains %s local modification(s).', $modCount), self::EXCEPTION_CODE);
         }
     }
 }

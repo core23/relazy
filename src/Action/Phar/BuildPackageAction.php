@@ -58,7 +58,7 @@ final class BuildPackageAction extends BaseAction
         $outputFile = $this->getDestination($context).'/'.$this->getFilename($context);
 
         if ($context->isDryRun()) {
-            $console->writeWarning(sprintf('Skipping PHAR generation for "%s" file', $outputFile));
+            $console->writeWarning(\sprintf('Skipping PHAR generation for "%s" file', $outputFile));
 
             return;
         }

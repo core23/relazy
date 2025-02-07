@@ -22,7 +22,7 @@ final class SimpleGenerator
 
         if (!is_numeric($currentVersion)) {
             throw new RelazyException(
-                sprintf('Current version format is invalid (%s). It should be numeric', $currentVersion)
+                \sprintf('Current version format is invalid (%s). It should be numeric', $currentVersion)
             );
         }
 

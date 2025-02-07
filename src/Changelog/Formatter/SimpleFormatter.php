@@ -23,7 +23,7 @@ final class SimpleFormatter implements Formatter
         array $extraLines = []
     ): array {
         $date = $this->getFormattedDate();
-        array_splice($lines, 0, 0, [sprintf('%s  %s  %s', $date, $version, $comment)]);
+        array_splice($lines, 0, 0, [\sprintf('%s  %s  %s', $date, $version, $comment)]);
 
         if ([] !== $extraLines) {
             array_splice($lines, 1, 0, $extraLines);

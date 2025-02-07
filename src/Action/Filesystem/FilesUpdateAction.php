@@ -61,11 +61,11 @@ final class FilesUpdateAction extends BaseAction
             }
 
             if (!file_exists($file)) {
-                throw new CommandException(sprintf('File %s does not exist', $originalFile));
+                throw new CommandException(\sprintf('File %s does not exist', $originalFile));
             }
 
             if ($context->isDryRun()) {
-                $console->writeWarning(sprintf('Skipping "%s" file update', $file));
+                $console->writeWarning(\sprintf('Skipping "%s" file update', $file));
 
                 continue;
             }
@@ -81,7 +81,7 @@ final class FilesUpdateAction extends BaseAction
         $content = file_get_contents($filename);
 
         if (false === $content) {
-            throw new CommandException(sprintf('The %s file could not be loaded', $filename));
+            throw new CommandException(\sprintf('The %s file could not be loaded', $filename));
         }
 
         if (!str_contains($content, $currentVersion)) {
@@ -96,7 +96,7 @@ final class FilesUpdateAction extends BaseAction
         $content = str_replace($currentVersion, $nextVersion, $content);
 
         if (!str_contains($content, $nextVersion)) {
-            throw new CommandException(sprintf('The version file %s could not be updated with version %s', $filename, $nextVersion));
+            throw new CommandException(\sprintf('The version file %s could not be updated with version %s', $filename, $nextVersion));
         }
 
         file_put_contents($filename, $content);

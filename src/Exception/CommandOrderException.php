@@ -15,6 +15,6 @@ class CommandOrderException extends CommandException
 {
     public static function forField(string $field): self
     {
-        throw new self(sprintf('The %s is not set. Maybe you have an action ordering issue.', $field));
+        throw new self(\sprintf('The %s is not set. Maybe you have an action ordering issue.', $field));
     }
 }

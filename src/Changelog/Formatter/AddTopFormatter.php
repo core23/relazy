@@ -58,9 +58,7 @@ final class AddTopFormatter implements Formatter
 
         array_splice($lines, $pos, 0, [$version, str_repeat('-', \strlen($version)), '']);
 
-        /**
-         * @phpstan-ignore-next-line
-         */
+        // @phpstan-ignore-next-line
         return $lines;
     }
 

@@ -27,7 +27,7 @@ final class TagAction extends BaseAction
         }
 
         if ($context->isDryRun()) {
-            $console->writeWarning(sprintf('Skipping tagging. Next text would be %s', $nextVersion));
+            $console->writeWarning(\sprintf('Skipping tagging. Next text would be %s', $nextVersion));
 
             return;
         }

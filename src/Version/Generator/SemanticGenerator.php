@@ -182,7 +182,7 @@ final class SemanticGenerator implements Generator, InteractionRequestAware
     {
         if (1 !== preg_match('#^'.$this->getValidationRegex().'$#', $currentVersion)) {
             throw new RelazyException(
-                sprintf('Current version format is invalid (%s). It should be major.minor.patch', $currentVersion)
+                \sprintf('Current version format is invalid (%s). It should be major.minor.patch', $currentVersion)
             );
         }
     }

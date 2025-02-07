@@ -122,7 +122,7 @@ final class InteractionCollector implements InteractionCollection
             return $default;
         }
 
-        throw new RelazyException(sprintf('No request named %s', $name));
+        throw new RelazyException(\sprintf('No request named %s', $name));
     }
 
     private function hasRequest(string $name): bool
@@ -133,7 +133,7 @@ final class InteractionCollector implements InteractionCollection
     private function getRequest(string $name): InteractionRequest
     {
         if (!$this->hasRequest($name)) {
-            throw new InvalidArgumentException(sprintf('There is no information request named [%s]', $name));
+            throw new InvalidArgumentException(\sprintf('There is no information request named [%s]', $name));
         }
 
         return $this->requests[$name];
