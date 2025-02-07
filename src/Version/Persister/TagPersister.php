@@ -141,7 +141,7 @@ final class TagPersister implements Persister
             } elseif ('date' === $placeHolder) {
                 $replacement = date('Y-m-d');
             } else {
-                throw new RelazyException(sprintf('There is no rules to process the prefix placeholder [%s]', $placeHolder));
+                throw new RelazyException(\sprintf('There is no rules to process the prefix placeholder [%s]', $placeHolder));
             }
 
             $userTag = str_replace($placeHolders[0][$pos], $replacement, $userTag);

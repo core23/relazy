@@ -99,7 +99,7 @@ class SemanticFormatter implements Formatter
     {
         [$major, $minor, $patch] = explode('.', $version);
         if (ReleaseType::MAJOR === $type) {
-            $title = sprintf('version %s  %s', $major, $comment);
+            $title = \sprintf('version %s  %s', $major, $comment);
 
             return array_merge(
                 [
@@ -115,7 +115,7 @@ class SemanticFormatter implements Formatter
             return array_merge(
                 [
                     '',
-                    sprintf('   Version %s.%s - %s', $major, $minor, $comment),
+                    \sprintf('   Version %s.%s - %s', $major, $minor, $comment),
                 ],
                 $this->getNewLines(ReleaseType::PATCH, $version, 'initial release')
             );
@@ -125,7 +125,7 @@ class SemanticFormatter implements Formatter
         $date = $this->getFormattedDate();
 
         return [
-            sprintf('      %s  %s  %s', $date, $version, $comment),
+            \sprintf('      %s  %s  %s', $date, $version, $comment),
         ];
     }
 

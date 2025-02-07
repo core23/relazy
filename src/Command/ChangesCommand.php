@@ -52,7 +52,7 @@ final class ChangesCommand extends BaseCommand
         $noMerges = $input->getOption(self::EXCLUDE_MERGE_COMMITS);
 
         if (true === $input->getOption(self::FILES)) {
-            $console->writeLine(sprintf('Here is the list of files changed since <green>%s</green>:', $lastVersion));
+            $console->writeLine(\sprintf('Here is the list of files changed since <green>%s</green>:', $lastVersion));
             $console->writeLine();
             $console->indent();
 
@@ -67,7 +67,7 @@ final class ChangesCommand extends BaseCommand
             return Command::SUCCESS;
         }
 
-        $console->writeLine(sprintf('Here is the list of changes since <green>%s</green>:', $lastVersion));
+        $console->writeLine(\sprintf('Here is the list of changes since <green>%s</green>:', $lastVersion));
         $console->indent();
 
         $modifications = $context->getVersionControl()->getAllModificationsSince($lastVersion, false, $noMerges);

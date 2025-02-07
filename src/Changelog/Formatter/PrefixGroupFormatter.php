@@ -126,7 +126,7 @@ final class PrefixGroupFormatter implements Formatter
 
     private function formatRelease(string $version, ?string $comment): string
     {
-        return trim(sprintf('## [%s] - %s %s', $version, $this->getFormattedDate(), $comment ?? ''));
+        return trim(\sprintf('## [%s] - %s %s', $version, $this->getFormattedDate(), $comment ?? ''));
     }
 
     /**
@@ -161,7 +161,7 @@ final class PrefixGroupFormatter implements Formatter
             preg_match('/^([0-9A-f]+) (?:\[(.*)\] )?(.*)/', $line, $matches, PREG_UNMATCHED_AS_NULL);
 
             $type = strtoupper($matches[2] ?? $this->defaultGroup);
-            $line = sprintf('- [%s] %s', $matches[1], $matches[3]);
+            $line = \sprintf('- [%s] %s', $matches[1], $matches[3]);
 
             $groupedLines[$type][] = $line;
         }
@@ -190,7 +190,7 @@ final class PrefixGroupFormatter implements Formatter
                 continue;
             }
 
-            $result[] = sprintf('### %s', $key);
+            $result[] = \sprintf('### %s', $key);
             $result[] = '';
 
             foreach ($valueLines as $line) {

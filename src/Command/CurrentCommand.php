@@ -59,10 +59,10 @@ final class CurrentCommand extends BaseCommand
         if (true === $input->getOption(self::RAW)) {
             $console->writeLine($isTag ? $vcsTag : $version);
         } else {
-            $msg = sprintf('Current release is: <green>%s</green>', $version);
+            $msg = \sprintf('Current release is: <green>%s</green>', $version);
 
             if ($isTag) {
-                $msg .= sprintf(' (VCS tag: <green>%s</green>)', $vcsTag);
+                $msg .= \sprintf(' (VCS tag: <green>%s</green>)', $vcsTag);
             }
 
             $console->writeLine($msg);

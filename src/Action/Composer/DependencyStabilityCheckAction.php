@@ -67,7 +67,7 @@ final class DependencyStabilityCheckAction extends AbstractAction
         foreach ($allowListConfig as $listing) {
             if (isset($listing[1])) {
                 if (!\in_array($listing[1], self::DEPENDENCY_LISTS, true)) {
-                    throw new CommandException(sprintf(
+                    throw new CommandException(\sprintf(
                         'configuration error: %s is no valid composer dependency section',
                         $listing[1]
                     ));
@@ -124,7 +124,7 @@ final class DependencyStabilityCheckAction extends AbstractAction
                 continue;
             }
 
-            throw new CommandException(sprintf(
+            throw new CommandException(\sprintf(
                 '%s uses dev-version but is not listed on allowList ',
                 $dependency
             ));

@@ -33,7 +33,7 @@ final class ChangelogManager
         }
 
         if (!is_file($filePath) || !is_writable($filePath)) {
-            throw new RelazyException(sprintf('Unable to write file [%s]', $filePath));
+            throw new RelazyException(\sprintf('Unable to write file [%s]', $filePath));
         }
 
         $this->filePath  = $filePath;
@@ -81,7 +81,7 @@ final class ChangelogManager
         $lines = file($this->filePath, FILE_IGNORE_NEW_LINES);
 
         if (false === $lines) {
-            throw new CommandException(sprintf('The %s file could not be loaded', $this->filePath));
+            throw new CommandException(\sprintf('The %s file could not be loaded', $this->filePath));
         }
 
         return $lines;
@@ -95,7 +95,7 @@ final class ChangelogManager
         $content = file_get_contents($this->filePath);
 
         if (false === $content) {
-            throw new CommandException(sprintf('The %s file could not be loaded', $this->filePath));
+            throw new CommandException(\sprintf('The %s file could not be loaded', $this->filePath));
         }
 
         return $content;

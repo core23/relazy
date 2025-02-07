@@ -22,7 +22,7 @@ final class UpdateVersionAction extends AbstractAction
         $composerFile = $context->getProjectRoot().'/'.self::COMPOSER_JSON_FILE;
 
         if ($context->isDryRun()) {
-            $console->writeWarning(sprintf('Skipping "%s" version update', self::COMPOSER_JSON_FILE));
+            $console->writeWarning(\sprintf('Skipping "%s" version update', self::COMPOSER_JSON_FILE));
 
             return;
         }

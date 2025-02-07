@@ -63,7 +63,7 @@ final class UpdateAction extends BaseAction implements InteractionRequestAware
         }
 
         if ($context->isDryRun()) {
-            $console->writeWarning(sprintf('Skipping Changelog generation for "%s" file', $this->file));
+            $console->writeWarning(\sprintf('Skipping Changelog generation for "%s" file', $this->file));
 
             return;
         }

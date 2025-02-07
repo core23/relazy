@@ -170,7 +170,7 @@ final class InteractionRequest
     public function getValue(): mixed
     {
         if (!$this->hasValue() && null === $this->options['default']) {
-            throw new RelazyException(sprintf('No value [%s] available', $this->name));
+            throw new RelazyException(\sprintf('No value [%s] available', $this->name));
         }
 
         return $this->hasValue() ? $this->value : $this->options['default'];

@@ -29,7 +29,7 @@ final class StabilityCheckAction extends AbstractAction
         $contents = $this->getContent();
 
         if (!isset($contents['minimum-stability']) && 'stable' !== $this->stability) {
-            throw new CommandException(sprintf(
+            throw new CommandException(\sprintf(
                 'The "minimum-stability" is not set, but relazy config requires: %s ',
                 $this->stability
             ));
@@ -43,7 +43,7 @@ final class StabilityCheckAction extends AbstractAction
             return;
         }
 
-        throw new CommandException(sprintf(
+        throw new CommandException(\sprintf(
             'The "minimum-stability" is set to: %s, but relazy config requires: %s ',
             $contents['minimum-stability'],
             $this->stability

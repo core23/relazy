@@ -92,7 +92,7 @@ abstract class BaseCommand extends Command
             $configFile = $this->getConfigFilePath();
 
             if (null === $configFile || !is_file($configFile)) {
-                throw new RelazyException(sprintf('Impossible to locate the config file at %s.', $configFile));
+                throw new RelazyException(\sprintf('Impossible to locate the config file at %s.', $configFile));
             }
 
             try {
@@ -102,7 +102,7 @@ abstract class BaseCommand extends Command
             }
 
             if (!$config instanceof RelazyConfig) {
-                throw new RelazyException(sprintf('Impossible to load config file (%s)', $configFile));
+                throw new RelazyException(\sprintf('Impossible to load config file (%s)', $configFile));
             }
 
             $this->config = $config;

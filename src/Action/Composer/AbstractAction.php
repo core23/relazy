@@ -38,17 +38,17 @@ abstract class AbstractAction extends BaseAction
     protected function getRawContent(): string
     {
         if (!file_exists(self::COMPOSER_JSON_FILE)) {
-            throw new CommandException(sprintf('The %s file could not be loaded', self::COMPOSER_JSON_FILE));
+            throw new CommandException(\sprintf('The %s file could not be loaded', self::COMPOSER_JSON_FILE));
         }
 
         if (!is_readable(self::COMPOSER_JSON_FILE)) {
-            throw new CommandException(sprintf('Cannot read %s. Maybe you don\'t have permissions.', self::COMPOSER_JSON_FILE));
+            throw new CommandException(\sprintf('Cannot read %s. Maybe you don\'t have permissions.', self::COMPOSER_JSON_FILE));
         }
 
         $content = file_get_contents(self::COMPOSER_JSON_FILE);
 
         if (false === $content) {
-            throw new CommandException(sprintf('The %s file could not be loaded', self::COMPOSER_JSON_FILE));
+            throw new CommandException(\sprintf('The %s file could not be loaded', self::COMPOSER_JSON_FILE));
         }
 
         return $content;

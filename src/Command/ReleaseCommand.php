@@ -102,13 +102,13 @@ final class ReleaseCommand extends BaseCommand
         $console->indent();
 
         if ($context->isDryRun()) {
-            $console->writeWarning(sprintf('Skipping creation of a new VCS tag [<yellow>%s</yellow>]', $newVersion));
+            $console->writeWarning(\sprintf('Skipping creation of a new VCS tag [<yellow>%s</yellow>]', $newVersion));
         } else {
-            $console->writeLine(sprintf('A new version named [<yellow>%s</yellow>] is going to be released', $newVersion));
+            $console->writeLine(\sprintf('A new version named [<yellow>%s</yellow>] is going to be released', $newVersion));
 
             $tag = $context->versionPersister->save($newVersion, $context);
 
-            $console->writeLine(sprintf('Creation of a new VCS tag [<yellow>%s</yellow>]', $tag));
+            $console->writeLine(\sprintf('Creation of a new VCS tag [<yellow>%s</yellow>]', $tag));
             $console->writeLine('Release: <green>Success</green>');
         }
 
@@ -149,7 +149,7 @@ final class ReleaseCommand extends BaseCommand
         $output->indent();
 
         foreach ($actions as $num => $action) {
-            $output->writeLine(sprintf('%s) %s', (int) $num+1, $action->getTitle()));
+            $output->writeLine(\sprintf('%s) %s', (int) $num+1, $action->getTitle()));
             $output->writeLine();
             $output->indent();
 

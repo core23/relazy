@@ -42,7 +42,7 @@ class CommandAction extends BaseAction
     {
         $command = $this->command;
 
-        $console->writeLine(sprintf("<comment>%s</comment>\n\n", $command));
+        $console->writeLine(\sprintf("<comment>%s</comment>\n\n", $command));
 
         if ($context->isDryRun()) {
             $console->writeWarning('Skipping execution in dry run mode');
@@ -78,6 +78,6 @@ class CommandAction extends BaseAction
             return;
         }
 
-        throw new CommandException(sprintf('Command [%s] exit with code ', $command).$process->getExitCode());
+        throw new CommandException(\sprintf('Command [%s] exit with code ', $command).$process->getExitCode());
     }
 }

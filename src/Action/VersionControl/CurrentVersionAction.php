@@ -23,7 +23,7 @@ final class CurrentVersionAction extends BaseAction
         try {
             $currentVersion = $context->getCurrentVersion();
 
-            $console->writeLine(sprintf('<yellow>%s</yellow>', $currentVersion));
+            $console->writeLine(\sprintf('<yellow>%s</yellow>', $currentVersion));
         } catch (Exception $e) {
             $console->writeWarning('No modification found: '.$e->getMessage());
         }

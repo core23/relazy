@@ -45,7 +45,7 @@ final class MarkdownFormatter extends SemanticFormatter
     {
         [$major, $minor, $patch] = explode('.', $version);
         if (ReleaseType::MAJOR=== $type) {
-            $title = sprintf('version %s  %s', $major, $comment);
+            $title = \sprintf('version %s  %s', $major, $comment);
 
             return array_merge(
                 [
@@ -60,7 +60,7 @@ final class MarkdownFormatter extends SemanticFormatter
             return array_merge(
                 [
                     '',
-                    sprintf(' * Version **%s.%s** - %s', $major, $minor, $comment),
+                    \sprintf(' * Version **%s.%s** - %s', $major, $minor, $comment),
                 ],
                 $this->getNewLines(ReleaseType::PATCH, $version, 'initial release')
             );
@@ -70,7 +70,7 @@ final class MarkdownFormatter extends SemanticFormatter
         $date = $this->getFormattedDate();
 
         return [
-            sprintf('   * %s  **%s**  %s', $date, $version, $comment),
+            \sprintf('   * %s  **%s**  %s', $date, $version, $comment),
         ];
     }
 

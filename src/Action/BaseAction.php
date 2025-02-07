@@ -35,7 +35,7 @@ abstract class BaseAction implements Action
      */
     final protected function executeCommand(Console $console, string $command, ?float $timeout = null): Process
     {
-        $console->writeLine(sprintf("<comment>%s</comment>\n\n", $command));
+        $console->writeLine(\sprintf("<comment>%s</comment>\n\n", $command));
 
         $process = Process::fromShellCommandline($command);
 
